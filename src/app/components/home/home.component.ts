@@ -16,8 +16,15 @@ export class HomeComponent {
 
     this.pokemon.getNewPokemons()
        .subscribe( (data: any) => {
-         console.log(data.pokemon);
-         this.newPokemons = data.pokemon
+         console.log(data);
+         this.newPokemons = data.results;
+
+         this.newPokemons.forEach((pokemon: any) => {
+          this.pokemon.getPokemonDetails(pokemon.url)
+            .subscribe(( details: any ) => {
+              pokemon.details = details;
+            });
+         });
        });
 
 

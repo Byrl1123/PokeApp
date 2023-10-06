@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { identity } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,13 +13,14 @@ export class PokemonService {
   }
 
  getNewPokemons() {
-  const headers = new HttpHeaders({
-    'Authorization': ''
-  })
-  this.http.get('https://pokeapi.co/api/v2/ability/', {headers});
 
+  return this.http.get('https://pokeapi.co/api/v2/pokemon/');
+
+ };
+
+ getPokemonDetails(url: 'https://pokeapi.co/api/v2/pokemon/1/') {
+  return this.http.get('https://pokeapi.co/api/v2/pokemon/1/')
  }
-
 
 
 }

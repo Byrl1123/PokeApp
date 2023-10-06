@@ -28,7 +28,7 @@ import { PokemonService } from './services/pokemon.service';
     HttpClientModule,
     RouterModule.forRoot(ROUTES, { useHash: true}),
   ],
-  providers: [],
+  providers: [PokemonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
