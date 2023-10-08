@@ -9,8 +9,12 @@ import { PokemonInfoComponent } from '../components/pokemon-info/pokemon-info.co
 })
 
 export class PokemonService {
+  static getPokemonDetails(url: any) {
+    throw new Error('Method not implemented.');
+  }
   
   private apiURL = 'https://pokeapi.co/api/v2/pokemon/';
+  static getNewPokemons: any;
 
   constructor( private http: HttpClient) {
   };
