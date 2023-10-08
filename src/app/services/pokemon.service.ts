@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { identity } from 'rxjs';
+import { Observable } from 'rxjs';
+import { Welcome } from 'src/pokemon.model';
+import { PokemonInfoComponent } from '../components/pokemon-info/pokemon-info.component';
 
 @Injectable({
   providedIn: 'root'
@@ -8,19 +10,17 @@ import { identity } from 'rxjs';
 
 export class PokemonService {
   
-  constructor(private http: HttpClient) { 
-    console.log('Pokemon service ready')
+  private apiURL = 'https://pokeapi.co/api/v2/pokemon/';
+
+  constructor( private http: HttpClient) {
+  };
+
+  getPokemons(): Observable<Welcome> {
+    return this.http.get<Welcome>(this.apiURL)
+  };
+
+  getPokemonDetails(url:string): Observable<PokemonInfoComponent> {
+    return this.http.get<PokemonInfoComponent>(url);
   }
-
- getNewPokemons() {
-
-  return this.http.get('https://pokeapi.co/api/v2/pokemon/');
-
- };
-
- getPokemonDetails(url: 'https://pokeapi.co/api/v2/pokemon/1/') {
-  return this.http.get('https://pokeapi.co/api/v2/pokemon/1/')
- }
-
 
 }

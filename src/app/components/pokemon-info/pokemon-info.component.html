@@ -1,1 +1,16 @@
-<p>pokemon-info works!</p>
+<div class="row">
+  <div *ngFor="let pokemon of newPokemons" class="col-md-3 mb-4">
+    <div class="card">
+      <img [src]="pokemon.images" class="card-img-top" alt="{{ pokemon.name }}">
+      <div class="card-body">
+        <h5 class="card-title">{{ pokemon.name }}</h5>
+        <p class="card-text">
+          <strong>Height:</strong> {{ pokemon.height }} <br>
+          <strong>Weight:</strong> {{ pokemon.weight }}
+        </p>
+        <a href="#" class="btn btn-primary">Ver detalles</a>
+      </div>
+    </div>
+  </div>
+</div>
+
